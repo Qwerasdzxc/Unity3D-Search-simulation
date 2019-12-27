@@ -27,7 +27,6 @@ public class Agent : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//Hacky way to move the cube along the path.
 		if (moveCube) {
 			float step = Time.deltaTime * 5;
 			transform.position = Vector3.MoveTowards (transform.position, path[i], step);
@@ -38,10 +37,6 @@ public class Agent : MonoBehaviour {
 		}
 	}
 
-	//Breadth first search of graph.
-	//Populates IList<Vector3> path with a valid solution to the goalPosition.
-	//Returns the goalPosition if a solution is found.
-	//Returns the startPosition if no solution is found.
 	Vector3 FindShortestPathBFS(Vector3 startPosition, Vector3 goalPosition){
         uint nodeVisitCount = 0;
         float timeNow = Time.realtimeSinceStartup;
@@ -97,10 +92,6 @@ public class Agent : MonoBehaviour {
 		return result;
 	}
 
-	//Depth first search of graph.
-	//Populates IList<Vector3> path with a valid solution to the goalPosition.
-	//Returns the goalPosition if a solution is found.
-	//Returns the startPosition if no solution is found.
 	Vector3 IDDFS(Vector3 startPosition, Vector3 goalPosition, int limit){
         uint nodeVisitCount = 0;
         float timeNow = Time.realtimeSinceStartup;
@@ -143,10 +134,6 @@ public class Agent : MonoBehaviour {
 		return startPosition;
 	}
 
-	//Depth first search of graph.
-	//Populates IList<Vector3> path with a valid solution to the goalPosition.
-	//Returns the goalPosition if a solution is found.
-	//Returns the startPosition if no solution is found.
 	Vector3 FindShortestPathDFS(Vector3 startPosition, Vector3 goalPosition){
         uint nodeVisitCount = 0;
         float timeNow = Time.realtimeSinceStartup;
